@@ -29,3 +29,4 @@ class ApixuProvider extends AbstractProvider implements WeatherProviderInterface
         return json_decode($this->fetch($city), true)['current']['temp_c'];
     }
 }
+
