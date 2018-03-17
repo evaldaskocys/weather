@@ -8,15 +8,18 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Psr\Log\LoggerInterface;
 
 class AppWeatherCommand extends Command
 {
     protected static $defaultName = 'app:weather';
     private $cacheDir;
+    private $logger;
 
-    public function __construct(string $cacheDir)
+    public function __construct(string $cacheDir, LoggerInterface $logger)
     {
         $this->cacheDir = $cacheDir;
+        $this->logger = $logger;
         parent::__construct();
     }
 
@@ -76,5 +79,6 @@ class AppWeatherCommand extends Command
         );
         
         $io->success('Done');
+        $this->logger->info('Command executed.');
     }
 }
