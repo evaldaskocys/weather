@@ -2,8 +2,7 @@
 
 namespace App\Outputter;
 
-interface OutputterInterface {
-
+interface OutputterInterface
+{
     public function print($content);
-
 }

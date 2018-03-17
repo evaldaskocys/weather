@@ -2,8 +2,7 @@
 
 namespace App\Provider;
 
-interface WeatherProviderInterface {
-
+interface WeatherProviderInterface
+{
     public function getCurrentTemperature($city);
-
 }
