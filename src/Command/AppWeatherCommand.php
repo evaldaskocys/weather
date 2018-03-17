@@ -48,6 +48,11 @@ class AppWeatherCommand extends Command
             $result = curl_exec($curl);
             if (!empty($result)) {
                 file_put_contents($cache, $result);
+            } else {
+                $result = curl_exec($curl);
+                if (!empty($result)) {
+                    file_put_contents($cache, $result);
+                }
             }
             curl_close($curl);
         }
